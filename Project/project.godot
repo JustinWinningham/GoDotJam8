@@ -16,7 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="GDE_Jam8"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/Main_Menu.tscn"
+config/icon="res://Art/icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=960
+window/size/resizable=false
 
 [rendering]
 

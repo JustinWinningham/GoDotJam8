@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/temp_spaceman.png-62c15ca6fdec329d0f35310ae9954a2b.stex"
+path="res://.import/spaceman01_runtest4_1.png-cccaf5bd642d23e3af35560458467038.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/temp_spaceman.png"
-dest_files=[ "res://.import/temp_spaceman.png-62c15ca6fdec329d0f35310ae9954a2b.stex" ]
+source_file="res://Art/Spaceman_run/spaceman01_runtest4_1.png"
+dest_files=[ "res://.import/spaceman01_runtest4_1.png-cccaf5bd642d23e3af35560458467038.stex" ]
 
 [params]
 

@@ -17,12 +17,15 @@ var was_airborne_last_frame = true
 var can_attach = false
 
 var motion = Vector2()
+var last_frame_motion = Vector2(1.0, 1.0)
 var airMotion = Vector2()
 var playerHasControl = true
+var is_touching_asteroid = false
 
 func _physics_process(delta):
 	can_attach = false
 	motion.y += GRAVITY
+	$Camera2D/UI/FPSLabel.text = String(Engine.get_frames_per_second())
 	$Camera2D/UI/GripBar.set_value(walljump_window)
 	$Camera2D/UI/FallSpeedLabel.text = String(motion.y / 10)
 	$Camera2D/UI/SpeedLabel.text = String(motion.x)
@@ -62,10 +65,10 @@ func _physics_process(delta):
 		else:
 			$Sprite.play("skid")
 			
-	
 	if is_on_floor():
 		$Camera2D/UI/Label.text = "Grounded!"
 		was_on_wall_last_frame = false
+		was_airborne_last_frame = false
 		walljump_window = min(walljump_window + 2, WALLJUMP_WINDOW_MAX)
 		flump_window = FLUMP_WINDOW_MAX
 		if friction == true:
@@ -81,11 +84,13 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("Jump") and Input.is_action_pressed("ui_left") and walljump_window > 0:
 			print("WALLJUMP 1!")
+			$Sprite.flip_h = false
 			motion.x = MAX_SPEED
 			motion.y = JUMP_FORCE
 			walljump_window -= 20
 		elif Input.is_action_just_pressed("Jump") and Input.is_action_pressed("ui_right") and walljump_window > 0:
 			print("WALLJUMP 2!")
+			$Sprite.flip_h = true
 			motion.x = -MAX_SPEED
 			motion.y = JUMP_FORCE
 			walljump_window -= 20
@@ -96,10 +101,10 @@ func _physics_process(delta):
 		was_on_wall_last_frame = false
 	else:
 		if motion.y < 0:
-#			$Sprite.play("jump")
+			$Sprite.play("jump")
 			pass
 		else:
-#			$Sprite.play("fall")
+			$Sprite.play("fall")
 			pass
 		$Camera2D/UI/Label.text = "Airborne!"
 		can_attach = false
@@ -112,17 +117,58 @@ func _physics_process(delta):
 		$Camera2D/UI/Label.text = "Attached!"
 		$Sprite.play("idle")
 		var asteroids = get_tree().get_nodes_in_group("Asteroids")
-		var nearest_asteroid = asteroids[0]
-
-		for roid in asteroids:
-			if roid.global_position.distance_to(self.position) < nearest_asteroid.global_position.distance_to(self.position):
-				nearest_asteroid = roid
-		motion.x = nearest_asteroid.velocity.x
-		motion.y = nearest_asteroid.velocity.y
+		if asteroids:
+			var nearest_asteroid = asteroids[0]
+			for roid in asteroids:
+				if roid.global_position.distance_to(self.position) < nearest_asteroid.global_position.distance_to(self.position):
+					nearest_asteroid = roid
+			motion = nearest_asteroid.get_linear_velocity()
+#		motion.x = nearest_asteroid.velocity.x
+#		motion.y = nearest_asteroid.velocity.y
 		
 	if flump_window > 0:
 		if Input.is_action_just_pressed("Jump"):
 			motion.y = JUMP_FORCE
+			#print("Air Motion Updated")
 			airMotion = motion
 	
-	motion = move_and_slide(motion, UP, true, 4, deg2rad(60), true)
+	motion = move_and_slide(motion, UP, true, 4, deg2rad(60), false)
+	
+	#########################################################################################################
+	############# NO PLAYER MOTION CALCULATION BEYOND THIS POINT, ONLY ASTEROID MOTION HANDLING #############
+	#########################################################################################################
+	if get_slide_count() > 0:
+		var wall_collider = get_slide_collision(0)
+		if wall_collider:
+			if was_airborne_last_frame or !was_on_wall_last_frame:
+				#print(wall_collider.collider.name)
+				talk_to_asteroids()
+	if is_on_floor() and was_airborne_last_frame:
+		#print("Just Landed")
+		#talk_to_asteroids()
+		pass
+	elif is_on_wall() and was_airborne_last_frame and !was_on_wall_last_frame:
+		#print("Just Hung")
+		talk_to_asteroids()
+	elif is_on_ceiling() and was_airborne_last_frame:
+		#print("Just hit Ceiling")
+		talk_to_asteroids()
+	last_frame_motion = motion
+
+func talk_to_asteroids():
+	if is_touching_asteroid():
+		var asteroids = get_parent().get_node("Asteroids").get_children()
+		if asteroids:
+			var nearest_asteroid = asteroids[0]
+			for roid in asteroids:
+				if roid.global_position.distance_to(self.position) < nearest_asteroid.global_position.distance_to(self.position):
+					nearest_asteroid = roid
+			if nearest_asteroid.has_method("slam_jam"):
+				nearest_asteroid.slam_jam(position, last_frame_motion)
+				
+func is_touching_asteroid():
+	for i in range(get_slide_count() - 1):
+		var slide_collide = get_slide_collision(i)
+		if slide_collide.collider.get_parent().name == "Asteroids":
+			return true
+	return false

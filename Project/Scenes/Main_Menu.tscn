@@ -25,19 +25,33 @@ text = "Play"
 script = ExtResource( 3 )
 scenePath = "res://Scenes/Tutorial_Level.tscn"
 
-[node name="TestLevelButton" type="Button" parent="."]
+[node name="LocomotionTestingLevelButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -605.0
+margin_left = -606.292
 margin_top = -183.0
-margin_right = -468.0
+margin_right = -469.292
 margin_bottom = -99.0
 shortcut_in_tooltip = false
-text = "Play"
+text = "Player Locomotion Testing Level"
 script = ExtResource( 3 )
 scenePath = "res://Scenes/TestingLevel.tscn"
+
+[node name="BlackHoleTestingLevelButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -610.169
+margin_top = -288.973
+margin_right = -368.169
+margin_bottom = -204.973
+shortcut_in_tooltip = false
+text = "Black Hole Interaction Testing Level"
+script = ExtResource( 3 )
+scenePath = "res://Scenes/BlackHoleTesting.tscn"
 
 [node name="OptionsButton" type="Button" parent="."]
 anchor_left = 0.5

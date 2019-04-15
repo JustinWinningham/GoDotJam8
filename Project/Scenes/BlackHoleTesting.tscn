@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/BlackHole.tscn" type="PackedScene" id=2]
+
+[node name="BlackHoleTesting" type="Node2D"]
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="1" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 184.807, 492.387 )
+
+[node name="8" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 24.5547, 28.4319 )
+
+[node name="2" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 197.662, 724.832 )
+initial_velocity = Vector2( 10, 10 )
+
+[node name="3" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 410.511, 117.057 )
+
+[node name="4" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 956.711, 101.892 )
+
+[node name="5" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 388.061, 587.037 )
+
+[node name="6" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 1115.26, 165.54 )
+
+[node name="9" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 1161.08, 93.941 )
+
+[node name="10" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 1070.87, 89.6451 )
+
+[node name="7" parent="Asteroids" instance=ExtResource( 1 )]
+position = Vector2( 1121.76, 752.151 )
+
+[node name="BlackHole" parent="." instance=ExtResource( 2 )]
+position = Vector2( 745.03, 488.865 )
+

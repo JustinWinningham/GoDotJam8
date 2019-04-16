@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Vortex.png-992f6a3bed4aad4a23b255980bc46a37.stex"
+path="res://.import/Paused.jpg-fd853594974ed6fc1338c6edbbc68fac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Vortex.png"
-dest_files=[ "res://.import/Vortex.png-992f6a3bed4aad4a23b255980bc46a37.stex" ]
+source_file="res://Art/Paused.jpg"
+dest_files=[ "res://.import/Paused.jpg-fd853594974ed6fc1338c6edbbc68fac.stex" ]
 
 [params]
 

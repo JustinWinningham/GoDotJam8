@@ -11,4 +11,5 @@ func _process(delta):
 	$FPSLabel.text = String(Engine.get_frames_per_second())
 	$FallSpeedLabel.text = String(int((thePlayer.motion.y)))
 	$FlumpWindowLabel.text = String(thePlayer.flump_window)
+	$GravityLabel.text = String(thePlayer.yy)
 	pass

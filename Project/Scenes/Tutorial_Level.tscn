@@ -1,42 +1,80 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/LevelTemplate.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Asteroids/MedAsteroidRigid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Asteroids/SmlAsteroidRigid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/NEW_Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/FinishPlatform.tscn" type="PackedScene" id=7]
 
 [node name="Tutorial_Level" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -378.395, 213.902 )
+position = Vector2( 644.812, 621.778 )
 
 [node name="Asteroids" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="1" parent="Asteroids" instance=ExtResource( 3 )]
-position = Vector2( -382.248, 331.813 )
+[node name="L_1" parent="Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 709.524, 345.878 )
 asteroid_weight = 10000
 
-[node name="2" parent="Asteroids" instance=ExtResource( 3 )]
-position = Vector2( -576.254, 709.652 )
+[node name="L_2" parent="Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 480.356, 720.201 )
 asteroid_weight = 1000
 
-[node name="6" parent="Asteroids" instance=ExtResource( 3 )]
-position = Vector2( -326.605, 734.265 )
+[node name="L_6" parent="Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 730.005, 744.814 )
 asteroid_weight = 1000
 
-[node name="7" parent="Asteroids" instance=ExtResource( 3 )]
-position = Vector2( -483.075, 765.911 )
+[node name="L_7" parent="Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 573.535, 776.46 )
 asteroid_weight = 1000
 
-[node name="3" parent="Asteroids" instance=ExtResource( 3 )]
-position = Vector2( -164.861, 658.667 )
+[node name="L_3" parent="Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 875.927, 533.843 )
 asteroid_weight = 1000
 
-[node name="4" parent="Asteroids" instance=ExtResource( 3 )]
-position = Vector2( -50.5858, 709.652 )
+[node name="L_4" parent="Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 948.008, 414.293 )
 asteroid_weight = 1000
 
-[node name="5" parent="Asteroids" instance=ExtResource( 3 )]
-position = Vector2( -412.752, 704.378 )
+[node name="L_5" parent="Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 643.858, 714.926 )
 asteroid_weight = 1000
+
+[node name="M_1" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 418.357, 492.522 )
+
+[node name="M_2" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 290.017, 381.762 )
+
+[node name="M_3" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 272.436, 631.411 )
+
+[node name="M_4" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 824.475, 624.378 )
+
+[node name="S_1" parent="Asteroids" instance=ExtResource( 5 )]
+position = Vector2( 488.748, 381.505 )
+
+[node name="S_2" parent="Asteroids" instance=ExtResource( 5 )]
+position = Vector2( 604.782, 195.148 )
+
+[node name="S_3" parent="Asteroids" instance=ExtResource( 5 )]
+position = Vector2( 856.188, 291.842 )
+
+[node name="S_4" parent="Asteroids" instance=ExtResource( 5 )]
+position = Vector2( 560.83, 525.668 )
+
+[node name="S_5" parent="Asteroids" instance=ExtResource( 5 )]
+position = Vector2( 870.253, 734.881 )
+
+[node name="MainCam" parent="." instance=ExtResource( 6 )]
+
+[node name="FinishPlatform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 418.357, 204.195 )
+nextLevel = "res://Scenes/Level_1.tscn"
 

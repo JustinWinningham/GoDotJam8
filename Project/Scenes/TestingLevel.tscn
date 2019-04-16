@@ -27,6 +27,7 @@ tile_data = PoolIntArray( 262194, -1610612721, 0, 262195, 1610612751, 0, 327729,
 position = Vector2( 841.161, 431.091 )
 
 [node name="Asteroids" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="L_1" parent="Asteroids" instance=ExtResource( 4 )]
 position = Vector2( 649.37, 794.896 )

@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Prefabs/UI.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Art/grip_bar01.png" type="Texture" id=2]
 [ext_resource path="res://Art/Blackhole/Distortion/space_blackholeDistortion1.png" type="Texture" id=3]
 [ext_resource path="res://Art/Blackhole/Distortion/space_blackholeDistortion2.png" type="Texture" id=4]
@@ -8,19 +8,22 @@
 [ext_resource path="res://Art/Blackhole/Distortion/space_blackholeDistortion4.png" type="Texture" id=6]
 [ext_resource path="res://Art/Blackhole/Distortion/space_blackholeDistortion5.png" type="Texture" id=7]
 [ext_resource path="res://Art/Blackhole/Distortion/space_blackholeDistortion6.png" type="Texture" id=8]
+[ext_resource path="res://Art/Paused.jpg" type="Texture" id=9]
+[ext_resource path="res://Prefabs/PAUSED.gd" type="Script" id=10]
+[ext_resource path="res://Prefabs/QuitButton.tscn" type="PackedScene" id=11]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.00740741, 0.0222222, 0.992593, 1 )
 colors = PoolColorArray( 0, 0.770996, 0.204043, 1, 0.374156, 0.370459, 0.0980414, 1, 0.288086, 0.462598, 0.122426, 1, 0.875, 0.0375977, 0.0375977, 1, 0.720215, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = SubResource( 3 )
+[sub_resource type="StyleBoxTexture" id=3]
+texture = SubResource( 2 )
 region_rect = Rect2( 0, 0, 2048, 1 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
@@ -58,14 +61,14 @@ margin_right = 320.264
 margin_bottom = 44.3181
 text = "FallSpeed"
 
-[node name="SpeedLabel" type="Label" parent="."]
+[node name="GravityLabel" type="Label" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 229.211
 margin_top = 8.31812
 margin_right = 319.211
 margin_bottom = 24.3181
-text = "SpeedLabel"
+text = "GravityLabel"
 
 [node name="GripBar" type="ProgressBar" parent="."]
 margin_left = 139.628
@@ -73,7 +76,7 @@ margin_top = 124.844
 margin_right = 231.628
 margin_bottom = 169.844
 rect_rotation = 180.0
-custom_styles/fg = SubResource( 4 )
+custom_styles/fg = SubResource( 3 )
 max_value = 60.0
 step = 1.0
 rounded = true
@@ -92,9 +95,24 @@ margin_bottom = 63.0031
 text = "Flump_Window"
 
 [node name="DANGER" type="AnimatedSprite" parent="."]
-position = Vector2( 641.59, 730.855 )
+position = Vector2( 640, 1200 )
 scale = Vector2( 2, 1 )
-frames = SubResource( 1 )
-frame = 4
+frames = SubResource( 4 )
+frame = 2
 playing = true
+
+[node name="PAUSED" type="Sprite" parent="."]
+pause_mode = 2
+visible = false
+position = Vector2( 640, 480 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = ExtResource( 9 )
+script = ExtResource( 10 )
+
+[node name="QuitButton" parent="PAUSED" instance=ExtResource( 11 )]
+margin_left = -745.164
+margin_top = -358.056
+margin_right = -642.164
+margin_bottom = -313.056
 

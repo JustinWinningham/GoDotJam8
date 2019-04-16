@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1) # set what direction is UP
-const GRAVITY = 15 # this won't be a const in the future
+const GRAVITY = 10 # this won't be a const in the future
 const MAX_SPEED = 300
 const ACCELERATION = 20
-const JUMP_FORCE = -800
+const JUMP_FORCE = -400
 const WALLJUMP_WINDOW_MAX = 60
 const FLUMP_WINDOW_MAX = 10
 
@@ -20,15 +20,17 @@ var last_frame_motion = Vector2(1.0, 1.0)
 var airMotion = Vector2()
 var playerHasControl = true
 var is_touching_asteroid = false
+var yy = 0
 
 
 func _physics_process(delta):
 	can_attach = false
 	if !get_parent().has_node("BlackHole"):
+		print("No Black Hole")
 		motion.y += GRAVITY
 	else:
-		var yy = get_parent().get_node("BlackHole").getGravIntensity(position.y)
-		motion.y += yy
+		yy = get_parent().get_node("BlackHole").getGravIntensity(position.y)
+		motion.y += yy + GRAVITY
 	var friction = false
 	if Input.is_action_pressed("ui_right"):
 		$Sprite.set_speed_scale(1)
@@ -85,13 +87,13 @@ func _physics_process(delta):
 			$Sprite.flip_h = false
 			motion.x = MAX_SPEED
 			motion.y = JUMP_FORCE
-			walljump_window -= 20
+			#walljump_window -= 20
 		elif Input.is_action_just_pressed("Jump") and Input.is_action_pressed("ui_right") and walljump_window > 0:
 			print("WALLJUMP 2!")
 			$Sprite.flip_h = true
 			motion.x = -MAX_SPEED
 			motion.y = JUMP_FORCE
-			walljump_window -= 20
+			#walljump_window -= 20
 		else:
 			walljump_window -= 1
 	elif was_on_wall_last_frame:

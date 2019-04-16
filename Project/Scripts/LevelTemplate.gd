@@ -1,16 +1,14 @@
 extends Node2D
 
 export(int) var KillPlane
-var dead = false
-
+var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !dead:
-		if $Player.position.y > 1500:
-			print("Player is hitting killplane")
-			dead = true
+	if $Player.position.y > 1500:
+		print("Player is hitting killplane")
+		get_tree().reload_current_scene()
 	pass

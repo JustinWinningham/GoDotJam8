@@ -3,8 +3,9 @@
 [ext_resource path="res://Scripts/NEW_CameraController.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=2]
 
-[node name="Camera2D" type="Camera2D"]
+[node name="MainCamera" type="Camera2D"]
 position = Vector2( 640, 480 )
+current = true
 limit_smoothed = true
 script = ExtResource( 1 )
 

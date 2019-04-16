@@ -8,9 +8,9 @@
 [ext_resource path="res://Art/Spaceman_run/spaceman01_runtest4_4.png" type="Texture" id=6]
 [ext_resource path="res://Art/Spaceman_run/spaceman01_runtest4_5.png" type="Texture" id=7]
 [ext_resource path="res://Art/Spaceman_run/spaceman01_runtest4_6.png" type="Texture" id=8]
-[ext_resource path="res://Art/spaceman01_skid.png" type="Texture" id=9]
-[ext_resource path="res://Art/spaceman01_jump.png" type="Texture" id=10]
-[ext_resource path="res://Art/spaceman01_hang.png" type="Texture" id=11]
+[ext_resource path="res://Art/spaceman01_jump.png" type="Texture" id=9]
+[ext_resource path="res://Art/spaceman01_hang.png" type="Texture" id=10]
+[ext_resource path="res://Art/spaceman01_skid.png" type="Texture" id=11]
 [ext_resource path="res://Art/spaceman01_fall.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -27,28 +27,28 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "skid",
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "jump",
+"name": "hang",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "hang",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "fall",
+"name": "skid",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "sprint",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -68,4 +68,9 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.37735, 10.1246 )
 shape = SubResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="SpaceDust" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 564.336, 500.81 )
 

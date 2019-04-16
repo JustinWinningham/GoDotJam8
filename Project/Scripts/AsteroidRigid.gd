@@ -24,7 +24,7 @@ func _process(delta):
 		var BH = get_parent().get_parent().get_node("BlackHole")
 		var gravY = BH.getGravIntensity(position.y)
 		var impulser = (BH.position - position) / BH_Intensity_Curve
-		impulser.y += gravY
+		impulser.y = gravY
 		#apply_central_impulse((BH.position - position) / BH_Intensity_Curve)
 		apply_central_impulse(impulser)
 	pass
@@ -36,11 +36,12 @@ func slam_jam(loc, force):
 	else:
 		push_force = (force - self.linear_velocity) / state_weight
 		std_offset = position - loc # Don't change this, feels perfect right now
-
+		
 # Called every collision
 func _integrate_forces(state):
 	if push_force.x < 100 and push_force.y < 100:
-		apply_impulse(std_offset, push_force)
+		apply_impulse(std_offset, push_force / 2)
+		pass
 	if angular_velocity > 1:
 		angular_velocity = 0 # prevent asteroids from spinning at mach 11
 	#print("Force: (%s, %s)" % [push_force.x, push_force.y])  

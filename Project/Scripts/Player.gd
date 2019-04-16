@@ -1,11 +1,10 @@
 extends KinematicBody2D
 
-
 const UP = Vector2(0, -1) # set what direction is UP
 const GRAVITY = 15 # this won't be a const in the future
 const MAX_SPEED = 300
 const ACCELERATION = 20
-const JUMP_FORCE = -600
+const JUMP_FORCE = -800
 const WALLJUMP_WINDOW_MAX = 60
 const FLUMP_WINDOW_MAX = 10
 
@@ -22,14 +21,14 @@ var airMotion = Vector2()
 var playerHasControl = true
 var is_touching_asteroid = false
 
+
 func _physics_process(delta):
 	can_attach = false
-	motion.y += GRAVITY
-	$Camera2D/UI/FPSLabel.text = String(Engine.get_frames_per_second())
-	$Camera2D/UI/GripBar.set_value(walljump_window)
-	$Camera2D/UI/FallSpeedLabel.text = String(motion.y / 10)
-	$Camera2D/UI/SpeedLabel.text = String(motion.x)
-	$Camera2D/UI/FlumpWindowLabel.text = String(flump_window)
+	if !get_parent().has_node("BlackHole"):
+		motion.y += GRAVITY
+	else:
+		var yy = get_parent().get_node("BlackHole").getGravIntensity(position.y)
+		motion.y += yy
 	var friction = false
 	if Input.is_action_pressed("ui_right"):
 		$Sprite.set_speed_scale(1)
@@ -66,7 +65,6 @@ func _physics_process(delta):
 			$Sprite.play("skid")
 			
 	if is_on_floor():
-		$Camera2D/UI/Label.text = "Grounded!"
 		was_on_wall_last_frame = false
 		was_airborne_last_frame = false
 		walljump_window = min(walljump_window + 2, WALLJUMP_WINDOW_MAX)
@@ -76,7 +74,7 @@ func _physics_process(delta):
 			
 	elif is_on_wall():
 		flump_window = 0
-		$Camera2D/UI/Label.text = "Walled!"
+		$Sprite.play("hang")
 		was_on_wall_last_frame = true
 		if walljump_window > WALLJUMP_WINDOW_MAX / 2:
 			motion.y = clamp(motion.y, -10, 10)
@@ -106,7 +104,6 @@ func _physics_process(delta):
 		else:
 			$Sprite.play("fall")
 			pass
-		$Camera2D/UI/Label.text = "Airborne!"
 		can_attach = false
 		was_airborne_last_frame = true
 		flump_window -= 1
@@ -114,7 +111,6 @@ func _physics_process(delta):
 		airMotion = motion
 
 	if can_attach:
-		$Camera2D/UI/Label.text = "Attached!"
 		$Sprite.play("idle")
 		var asteroids = get_tree().get_nodes_in_group("Asteroids")
 		if asteroids:
@@ -132,7 +128,15 @@ func _physics_process(delta):
 			#print("Air Motion Updated")
 			airMotion = motion
 	
+	
 	motion = move_and_slide(motion, UP, true, 4, deg2rad(60), false)
+	if position.x < 0:
+		position.x = 0
+		motion.x = 0
+	if position.x > 1280:
+		position.x = 1280
+		motion.x = 0
+	
 	
 	#########################################################################################################
 	############# NO PLAYER MOTION CALCULATION BEYOND THIS POINT, ONLY ASTEROID MOTION HANDLING #############

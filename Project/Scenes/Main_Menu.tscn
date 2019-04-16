@@ -24,6 +24,7 @@ shortcut_in_tooltip = false
 text = "Play"
 script = ExtResource( 3 )
 scenePath = "res://Scenes/Tutorial_Level.tscn"
+FXPath = "res://Audio/ButtonClick.wav"
 
 [node name="LocomotionTestingLevelButton" type="Button" parent="."]
 anchor_left = 0.5

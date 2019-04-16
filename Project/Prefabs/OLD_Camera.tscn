@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CameraController.gd" type="Script" id=1]
+
+[node name="Camera2D" type="Camera2D"]
+rotating = true
+current = true
+limit_left = 0
+limit_right = 1280
+limit_smoothed = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+editor_draw_limits = true
+script = ExtResource( 1 )
+maxCameraZoom = Vector2( 1, 1 )
+minCameraZoom = Vector2( 1, 1 )
+

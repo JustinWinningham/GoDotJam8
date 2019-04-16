@@ -1,10 +1,10 @@
 extends RigidBody2D
 
 
-export(int) var asteroid_weight = 10
+export(int) var asteroid_weight = 2
 export(bool) var override_random_rot = true
 export(Vector2) var initial_velocity = Vector2()
-export(int) var BH_Intensity_Curve = 2000
+export(int) var BH_Intensity_Curve = 1000
 
 var std_offset = Vector2()
 var push_force = Vector2()
@@ -20,10 +20,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var BH = get_parent().get_parent().get_node("BlackHole")
-	if BH != null:
-		print("Suction!")
-		apply_central_impulse((BH.position - position) / BH_Intensity_Curve) 
+	if get_parent().get_parent().has_node("BlackHole"):
+		var BH = get_parent().get_parent().get_node("BlackHole")
+		var gravY = BH.getGravIntensity(position.y)
+		var impulser = (BH.position - position) / BH_Intensity_Curve
+		impulser.y += gravY
+		#apply_central_impulse((BH.position - position) / BH_Intensity_Curve)
+		apply_central_impulse(impulser)
 	pass
 
 func slam_jam(loc, force):
@@ -38,6 +41,8 @@ func slam_jam(loc, force):
 func _integrate_forces(state):
 	if push_force.x < 100 and push_force.y < 100:
 		apply_impulse(std_offset, push_force)
+	if angular_velocity > 1:
+		angular_velocity = 0 # prevent asteroids from spinning at mach 11
 	#print("Force: (%s, %s)" % [push_force.x, push_force.y])  
 	std_offset = Vector2(0,0)
 	push_force = Vector2(0,0)

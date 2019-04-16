@@ -13,3 +13,4 @@ func _process(delta):
 		if $Player.position.y > 1500:
 			print("Player is hitting killplane")
 			dead = true
+	pass

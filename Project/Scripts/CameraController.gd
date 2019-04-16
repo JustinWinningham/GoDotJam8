@@ -13,7 +13,7 @@ var currentZoomTarget
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_zoom(Vector2(100, 100))
+#	set_zoom(Vector2(100, 100)) # Uncomment this line to have the level start zoomed out and pan in
 	currentZoomTarget = defaultZoom
 	pass # Replace with function body.
 
@@ -33,3 +33,4 @@ func _process(delta):
 	var frameTargetY = lerp(currentZoom.y, currentZoomTarget.y, zoomFrameDelta)
 	var vector2Target = Vector2(frameTargetX, frameTargetY)
 	set_zoom(vector2Target)
+	

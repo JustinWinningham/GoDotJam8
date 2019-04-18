@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Prefabs/QuitButton.tscn" type="PackedScene" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Max_Endless_Height" type="Label" parent="."]
+margin_left = 222.134
+margin_top = 260.548
+margin_right = 293.134
+margin_bottom = 306.548
+text = "max height"
+
+[node name="Max_Endless_Time" type="Label" parent="."]
+margin_left = 222.134
+margin_top = 260.548
+margin_right = 293.134
+margin_bottom = 306.548
+text = "max height"
+
+[node name="NumJumps" type="Label" parent="."]
+margin_left = 222.134
+margin_top = 260.548
+margin_right = 293.134
+margin_bottom = 306.548
+text = "max height"
+
+[node name="NumWallJumps" type="Label" parent="."]
+margin_left = 222.134
+margin_top = 260.548
+margin_right = 293.134
+margin_bottom = 306.548
+text = "max height"
+
+[node name="NumDeaths" type="Label" parent="."]
+margin_left = 222.134
+margin_top = 260.548
+margin_right = 293.134
+margin_bottom = 306.548
+text = "max height"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 18.3719
+margin_top = 18.372
+margin_right = 157.372
+margin_bottom = 88.372
+text = "Main Menu"
+
+[node name="QuitButton" parent="." instance=ExtResource( 1 )]
+margin_left = -102.187
+margin_top = 2.18984
+margin_right = 0.813477
+margin_bottom = 47.1898
+

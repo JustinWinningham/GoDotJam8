@@ -4,7 +4,7 @@ const UP = Vector2(0, -1) # set what direction is UP
 const GRAVITY = 10 # this won't be a const in the future
 const MAX_SPEED = 300
 const ACCELERATION = 20
-const JUMP_FORCE = -400
+const JUMP_FORCE = -600
 const WALLJUMP_WINDOW_MAX = 60
 const FLUMP_WINDOW_MAX = 10
 
@@ -83,13 +83,13 @@ func _physics_process(delta):
 			# Add particle effect here if we get that far!
 		
 		if Input.is_action_just_pressed("Jump") and Input.is_action_pressed("ui_left") and walljump_window > 0:
-			print("WALLJUMP 1!")
+			$"/root/GLOBAL".num_walljumps += 1
 			$Sprite.flip_h = false
 			motion.x = MAX_SPEED
 			motion.y = JUMP_FORCE
 			#walljump_window -= 20
 		elif Input.is_action_just_pressed("Jump") and Input.is_action_pressed("ui_right") and walljump_window > 0:
-			print("WALLJUMP 2!")
+			$"/root/GLOBAL".num_walljumps += 1
 			$Sprite.flip_h = true
 			motion.x = -MAX_SPEED
 			motion.y = JUMP_FORCE
@@ -126,8 +126,8 @@ func _physics_process(delta):
 		
 	if flump_window > 0:
 		if Input.is_action_just_pressed("Jump"):
+			$"/root/GLOBAL".num_jumps += 1
 			motion.y = JUMP_FORCE
-			#print("Air Motion Updated")
 			airMotion = motion
 	
 	
@@ -139,10 +139,10 @@ func _physics_process(delta):
 		position.x = 1280
 		motion.x = 0
 	
-	
 	#########################################################################################################
 	############# NO PLAYER MOTION CALCULATION BEYOND THIS POINT, ONLY ASTEROID MOTION HANDLING #############
 	#########################################################################################################
+	
 	if get_slide_count() > 0:
 		var wall_collider = get_slide_collision(0)
 		if wall_collider:

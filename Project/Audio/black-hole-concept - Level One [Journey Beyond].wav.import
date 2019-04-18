@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/black-hole-concept - Level One [Journey Beyond].wav-d28a595749ce5e3d89272a2f05989c85.sample"
+
+[deps]
+
+source_file="res://Audio/black-hole-concept - Level One [Journey Beyond].wav"
+dest_files=[ "res://.import/black-hole-concept - Level One [Journey Beyond].wav-d28a595749ce5e3d89272a2f05989c85.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grip_bar01.png-dca16e0cf3ae05f6c36336620f8dbe97.stex"
+path="res://.import/grip_bar01.png-ca4e771872c29ec88a3c7f7d7f21dfed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/grip_bar01.png"
-dest_files=[ "res://.import/grip_bar01.png-dca16e0cf3ae05f6c36336620f8dbe97.stex" ]
+source_file="res://Art/UI/grip_bar01.png"
+dest_files=[ "res://.import/grip_bar01.png-ca4e771872c29ec88a3c7f7d7f21dfed.stex" ]
 
 [params]
 

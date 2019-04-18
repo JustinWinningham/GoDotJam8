@@ -46,9 +46,9 @@ initial_velocity = Vector2( 0, -100 )
 
 [node name="FinishPlatform" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1093.48, 641.887 )
+nextLevel = "res://Scenes/Level_2.tscn"
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 0, 600 )
 width = 2.0
-texture_mode = 0
 

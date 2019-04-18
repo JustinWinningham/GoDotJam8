@@ -11,8 +11,11 @@ func _ready():
 	self.add_child(thePlayer)
 	thePlayer.volume_db = FXVolume
 	thePlayer.stream = load(FXPath)
+	pass
 
 func _pressed():
 	thePlayer.play()
 	get_tree().change_scene(scenePath)
+	if get_tree().paused:
+		get_tree().paused = false
 

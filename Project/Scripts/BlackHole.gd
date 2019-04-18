@@ -6,15 +6,11 @@ export(float) var farGravPull = 2
 export(float) var midGravPull = 5
 export(float) var closeGravPull = 10
 
-#export(float) var goneGrav = 4000
-#export(float) var veryFarGrav = 2000
-#export(float) var farGrav = 1000
-#export(float) var midGrav = 400
-export(float) var goneGrav = -500
-export(float) var veryFarGrav = 0
-export(float) var farGrav = 400
-export(float) var midGrav = 600
-export(float) var closeGrav = 750
+#export(float) var goneGrav = -1000
+export(float) var veryFarGrav = -400
+export(float) var farGrav = 0
+export(float) var midGrav = 300
+export(float) var closeGrav = 700
 
 func _ready():
 	pass # Replace with function body.
@@ -25,6 +21,8 @@ func _process(delta):
 	for bod in bodies:
 		if bod == get_parent().get_node("Player"):
 			# Level failure actions here
+			if get_parent().name == "Level_EndlessMode" or get_parent().name == "Level_EndlessModeHardcore":
+				$"/root/GLOBAL".num_deaths += 1
 			get_tree().reload_current_scene()
 		else:
 			bod.free()
@@ -41,15 +39,3 @@ func getGravIntensity(ypos):
 		return veryFarGravPull
 	else:
 		return goneGravPull
-
-#func getGravIntensity(ypos):
-#	if abs(ypos - position.y) > goneGrav:
-#		return goneGravPull
-#	elif abs(ypos - position.y) > veryFarGrav:
-#		return veryFarGravPull
-#	elif abs(ypos - position.y) > farGrav:
-#		return farGravPull
-#	elif abs(ypos - position.y) > midGrav:
-#		return midGravPull
-#	else:
-#		return closeGravPull

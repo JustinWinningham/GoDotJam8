@@ -2,7 +2,7 @@ extends RigidBody2D
 
 
 export(int) var asteroid_weight = 2
-export(bool) var override_random_rot = true
+# export(bool) var override_random_rot = true
 export(Vector2) var initial_velocity = Vector2()
 export(int) var BH_Intensity_Curve = 1000
 
@@ -31,8 +31,9 @@ func _process(delta):
 
 func slam_jam(loc, force):
 	if !loc or !force:
-		print("bad values passed to slam_jam")
+		#print("bad values passed to slam_jam")
 		#print("Slamloc: %s, Slamforce: %s" % [loc, force])
+		pass
 	else:
 		push_force = (force - self.linear_velocity) / state_weight
 		std_offset = position - loc # Don't change this, feels perfect right now

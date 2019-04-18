@@ -17,7 +17,12 @@ _global_script_class_icons={
 
 config/name="GDE_Jam8"
 run/main_scene="res://Scenes/Main_Menu.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Art/icon.png"
+
+[autoload]
+
+GLOBAL="*res://Scripts/GLOBAL.gd"
 
 [display]
 
@@ -72,4 +77,5 @@ PAUSE={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://Other/default_env.tres"

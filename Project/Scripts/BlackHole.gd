@@ -12,21 +12,40 @@ export(float) var farGrav = 0
 export(float) var midGrav = 300
 export(float) var closeGrav = 700
 
+var deathScreening = false
+var holding = 600
+var hasPlayed = false
+
 func _ready():
 	pass # Replace with function body.
 
 
 func _process(delta):
-	var bodies = get_overlapping_bodies()
-	for bod in bodies:
-		if bod == get_parent().get_node("Player"):
-			# Level failure actions here
-			if get_parent().name == "Level_EndlessMode" or get_parent().name == "Level_EndlessModeHardcore":
-				$"/root/GLOBAL".num_deaths += 1
-			get_tree().reload_current_scene()
+	if !deathScreening:
+		var bodies = get_overlapping_bodies()
+		for bod in bodies:
+			if bod == get_parent().get_node("Player"):
+				# Level failure actions here
+				if get_parent().name == "Level_EndlessMode" or get_parent().name == "Level_EndlessModeHardcore":
+					$"/root/GLOBAL".num_deaths += 1
+				get_tree().paused = true
+				deathScreening = true
+			else:
+				bod.free()
+			pass
+	else:
+		if !$DeadAudio.is_playing() and !hasPlayed:
+			$DeadAudio.play()
+			hasPlayed = true
+		if $GG.position.y > -200:
+			$GG.position.y = lerp($GG.position.y, -201, 0.04)
+			if $GG.position.y < -199:
+				$GG.position.y = -201
 		else:
-			bod.free()
-		pass
+			holding -= 1
+		if holding == 0:
+			get_tree().paused = false
+			get_tree().reload_current_scene() 
 
 func getGravIntensity(ypos):
 	if ypos > closeGrav:

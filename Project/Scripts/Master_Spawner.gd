@@ -19,6 +19,7 @@ export(int) var deleteTickerMax = 1000
 
 export(int) var rxMax = 400
 export(int) var ryMax = 100
+export(bool) var hardMode = false
 
 var ticker
 var delTicker
@@ -61,7 +62,10 @@ func _process(delta):
 func SpawnAsteroid(side, pick, size):
 	var Asteroid
 	if size == 0:
-		Asteroid = LrgAsteroidPacked.instance()
+		if hardMode:
+			Asteroid = MedAsteroidPacked.instance()
+		else:
+			Asteroid = LrgAsteroidPacked.instance()
 	elif size == 1:
 		Asteroid = MedAsteroidPacked.instance()
 	else:

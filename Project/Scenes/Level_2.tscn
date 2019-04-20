@@ -28,24 +28,24 @@ BH_Intensity_Curve = 500
 position = Vector2( 378.679, 176.198 )
 
 [node name="L_3" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 475.723, -86.1491 )
+position = Vector2( 428.237, -120.685 )
 
 [node name="L_4" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 525.837, -216.157 )
+position = Vector2( 450.29, -252.851 )
 
 [node name="L_5" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 608.314, -368.838 )
+position = Vector2( 491.756, -368.838 )
 
 [node name="L_6" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 689.466, -475.512 )
+position = Vector2( 559.957, -497.097 )
 
 [node name="L_7" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 423.42, 13.8358 )
+position = Vector2( 401.835, 15.9944 )
+
+[node name="L_8" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 604.732, -644.499 )
 
 [node name="FinishPlatform" parent="." instance=ExtResource( 5 )]
-position = Vector2( 823.67, -618.663 )
-
-[node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( 0, 0, 0, 600 )
-width = 2.0
+position = Vector2( 743.806, -545.275 )
+nextLevel = "res://Scenes/Level_3.tscn"
 

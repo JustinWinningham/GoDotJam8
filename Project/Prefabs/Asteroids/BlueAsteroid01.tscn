@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/AsteroidRigid.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/BlueAsteroid_Tiles.tres" type="TileSet" id=2]
+
+[sub_resource type="ConcavePolygonShape2D" id=1]
+segments = PoolVector2Array( 32, 32, 32, -32, -64, -32, -64, 96, 0, 96, 0, 32, 32, -32, -64, -32, 32, 32, 0, 32, 0, 96, -64, 96 )
+
+[node name="BlueAsteroid01" type="RigidBody2D"]
+script = ExtResource( 1 )
+asteroid_weight = 100
+BH_Intensity_Curve = 2000
+isGiant = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -2, 0, 0, -1, 1, 0, -65536, 2, 0, 65534, 3, 0, 65535, 4, 0, 0, 8, 0, 131070, 3, 0, 131071, 5, 0, 196606, 6, 0, 196607, 8, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+

@@ -1,12 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Backgrounds/background_space2.png" type="Texture" id=2]
 [ext_resource path="res://Prefabs/QuitButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=4]
-[ext_resource path="res://Art/UI/button_play.png" type="Texture" id=5]
-[ext_resource path="res://Art/UI/btn_endless.png" type="Texture" id=6]
-[ext_resource path="res://Art/UI/btn_endless_hard.png" type="Texture" id=7]
+[ext_resource path="res://Art/UI/btn_quit.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=5]
+[ext_resource path="res://Art/UI/button_play.png" type="Texture" id=6]
+[ext_resource path="res://Art/UI/btn_endless.png" type="Texture" id=7]
+[ext_resource path="res://Art/UI/btn_endless_hard.png" type="Texture" id=8]
+[ext_resource path="res://Art/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Audio/black-hole-concept - Level One [Journey Beyond].wav" type="AudioStream" id=10]
+[ext_resource path="res://Prefabs/Master_Spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Art/Backgrounds/background_title.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 9 )
 
 [node name="Main_Menu" type="Control"]
 anchor_right = 1.0
@@ -21,66 +29,46 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="QuitButton" parent="." instance=ExtResource( 3 )]
+margin_right = 5.0
+text = ""
+icon = ExtResource( 4 )
+flat = true
 
 [node name="PlayButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -116.426
-margin_top = -207.64
-margin_right = 27.5737
-margin_bottom = -159.64
+margin_left = -71.9999
+margin_top = -24.0
+margin_right = 71.9999
+margin_bottom = 24.0
 shortcut_in_tooltip = false
 flat = true
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 scenePath = "res://Scenes/Tutorial_Level.tscn"
-FXPath = "res://Audio/ButtonClick.wav"
 
 [node name="Sprite" type="Sprite" parent="PlayButton"]
 position = Vector2( 71.579, 22.1056 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 5 )
-
-[node name="PlayButton2" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -515.36
-margin_top = -265.479
-margin_right = -371.36
-margin_bottom = -217.479
-shortcut_in_tooltip = false
-flat = true
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-scenePath = "res://Scenes/Level_2.tscn"
-FXPath = "res://Audio/ButtonClick.wav"
-
-[node name="Sprite" type="Sprite" parent="PlayButton2"]
-position = Vector2( 71.579, 22.1056 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="EndlessMode" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -121.445
-margin_top = 196.609
-margin_right = 50.5547
-margin_bottom = 236.609
+margin_left = -90.1563
+margin_top = 202.051
+margin_right = 81.8437
+margin_bottom = 242.051
 shortcut_in_tooltip = false
-icon = ExtResource( 6 )
+icon = ExtResource( 7 )
 flat = true
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scenePath = "res://Scenes/Level_EndlessMode.tscn"
 
 [node name="EndlessModeHard" type="Button" parent="."]
@@ -88,48 +76,71 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -121.445
-margin_top = 245.719
-margin_right = 50.5547
-margin_bottom = 285.719
+margin_left = -90.1563
+margin_top = 251.161
+margin_right = 81.8437
+margin_bottom = 291.161
 shortcut_in_tooltip = false
-icon = ExtResource( 7 )
+icon = ExtResource( 8 )
 flat = true
-script = ExtResource( 4 )
-scenePath = "res://Scenes/Level_EndlessMode.tscn"
+script = ExtResource( 5 )
+scenePath = "res://Scenes/Level_EndlessModeHard.tscn"
 
 [node name="numDeaths" type="Label" parent="."]
-margin_left = 560.937
-margin_top = 79.2001
-margin_right = 603.937
-margin_bottom = 93.2001
+margin_left = 560.0
+margin_top = 80.0
+margin_right = 610.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 1 )
 text = "DEATHS"
 
 [node name="numJumps" type="Label" parent="."]
-margin_left = 561.721
-margin_top = 109.308
-margin_right = 601.721
-margin_bottom = 123.308
+margin_left = 560.0
+margin_top = 100.0
+margin_right = 600.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 1 )
 text = "JUMPS"
 
 [node name="numWallJumps" type="Label" parent="."]
-margin_left = 564.471
-margin_top = 143.245
-margin_right = 640.471
-margin_bottom = 157.245
+margin_left = 560.0
+margin_top = 120.0
+margin_right = 636.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 1 )
 text = "WALLJUMPS"
 
 [node name="max_endless_time" type="Label" parent="."]
-margin_left = 568.053
-margin_top = 166.318
-margin_right = 608.053
-margin_bottom = 180.318
+margin_left = 560.0
+margin_top = 140.0
+margin_right = 600.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 1 )
 text = "TIME"
 
 [node name="max_endless_height" type="Label" parent="."]
-margin_left = 565.53
-margin_top = 193.446
-margin_right = 614.53
-margin_bottom = 207.446
+margin_left = 560.0
+margin_top = 160.0
+margin_right = 609.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 1 )
 text = "HEIGHT"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -15.0
+autoplay = true
+
+[node name="Master_Spawner" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 1.05267 )
+tickerMax = 60
+deleteTickerMax = 10000
+rxMax = 500
+ryMax = 200
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 648.95, 315.748 )
+texture = ExtResource( 12 )
 

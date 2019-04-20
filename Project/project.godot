@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="GDE_Jam8"
 run/main_scene="res://Scenes/Main_Menu.tscn"
+boot_splash/image="res://Art/Backgrounds/background_lv20MImic.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Art/icon.png"
 

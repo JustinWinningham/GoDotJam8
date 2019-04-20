@@ -5,6 +5,7 @@ export(int) var asteroid_weight = 2
 # export(bool) var override_random_rot = true
 export(Vector2) var initial_velocity = Vector2()
 export(int) var BH_Intensity_Curve = 1000
+export(bool) var isGiant = false
 
 var std_offset = Vector2()
 var push_force = Vector2()
@@ -26,7 +27,10 @@ func _process(delta):
 		var impulser = (BH.position - position) / BH_Intensity_Curve
 		impulser.y = gravY
 		#apply_central_impulse((BH.position - position) / BH_Intensity_Curve)
-		apply_central_impulse(impulser)
+		if !isGiant:
+			apply_central_impulse(impulser)
+		else:
+			apply_central_impulse(impulser.normalize())
 	pass
 
 func slam_jam(loc, force):
@@ -35,13 +39,20 @@ func slam_jam(loc, force):
 		#print("Slamloc: %s, Slamforce: %s" % [loc, force])
 		pass
 	else:
-		push_force = (force - self.linear_velocity) / state_weight
-		std_offset = position - loc # Don't change this, feels perfect right now
+		if !isGiant:
+			push_force = (force - self.linear_velocity) / state_weight
+			std_offset = position - loc # Don't change this, feels perfect right now
+		else:
+			push_force = (force - self.linear_velocity) / state_weight
+			std_offset = position - loc
 		
 # Called every collision
 func _integrate_forces(state):
 	if push_force.x < 100 and push_force.y < 100:
-		apply_impulse(std_offset, push_force / 2)
+		if !isGiant:
+			apply_impulse(std_offset, push_force / 2)
+		else:
+			apply_impulse(std_offset, push_force / 4)
 		pass
 	if angular_velocity > 1:
 		angular_velocity = 0 # prevent asteroids from spinning at mach 11

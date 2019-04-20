@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Art/UI/grip_UI.png" type="Texture" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://Art/UI/spr_pauseButton1.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/PAUSED.gd" type="Script" id=11]
 [ext_resource path="res://Prefabs/QuitButton.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=13]
+[ext_resource path="res://Art/UI/btn_quit.png" type="Texture" id=13]
+[ext_resource path="res://Art/UI/btn_mainMenu.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=15]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.637037, 1 )
@@ -127,7 +129,7 @@ text = "Flump_Window"
 position = Vector2( 640, 1200 )
 scale = Vector2( 2, 1 )
 frames = SubResource( 5 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="PAUSED" type="Sprite" parent="."]
@@ -140,18 +142,22 @@ texture = ExtResource( 10 )
 script = ExtResource( 11 )
 
 [node name="QuitButton" parent="PAUSED" instance=ExtResource( 12 )]
-margin_left = -134.21
-margin_top = 59.2078
-margin_right = -59.2101
-margin_bottom = 100.208
+margin_left = -151.592
+margin_top = 53.0317
+margin_right = -43.5919
+margin_bottom = 91.0317
+text = ""
+icon = ExtResource( 13 )
+flat = true
 
 [node name="BackToMainButton" parent="PAUSED" instance=ExtResource( 12 )]
-margin_left = -141.409
-margin_top = -95.485
-margin_right = -50.4095
-margin_bottom = -54.4848
-text = "MAIN MENU"
-script = ExtResource( 13 )
+margin_left = -182.634
+margin_top = -91.0211
+margin_right = -10.634
+margin_bottom = -53.0211
+text = ""
+icon = ExtResource( 14 )
+flat = true
+script = ExtResource( 15 )
 scenePath = "res://Scenes/Main_Menu.tscn"
-FXPath = "res://Audio/ButtonClick.wav"
 

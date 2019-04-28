@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var LrgAsteroidPacked = preload("res://Prefabs/Asteroids/BigAsteroidRigid.tscn")
-onready var MedAsteroidPacked = preload("res://Prefabs/Asteroids/MedAsteroidRigid.tscn")
-onready var SmlAsteroidPacked = preload("res://Prefabs/Asteroids/SmlAsteroidRigid.tscn")
+onready var LrgAsteroidPacked = preload("res://Old Prefabs/Asteroids/BigAsteroidRigid.tscn")
+onready var MedAsteroidPacked = preload("res://Old Prefabs/Asteroids/MedAsteroidRigid.tscn")
+onready var SmlAsteroidPacked = preload("res://Old Prefabs/Asteroids/SmlAsteroidRigid.tscn")
 
 var LrgAsteroidPrev = Vector2()
 

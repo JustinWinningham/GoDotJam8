@@ -1,12 +1,14 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/LevelTemplate.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/Asteroids/MedAsteroidRigid.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Asteroids/SmlAsteroidRigid.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/NEW_Camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/FinishPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Old Scripts/LevelTemplate.gd" type="Script" id=1]
+[ext_resource path="res://Old Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Old Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Old Prefabs/Asteroids/MedAsteroidRigid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Old Prefabs/Asteroids/SmlAsteroidRigid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Old Prefabs/NEW_Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Old Prefabs/FinishPlatform.tscn" type="PackedScene" id=7]
+
+
 
 [node name="Tutorial_Level" type="Node2D"]
 script = ExtResource( 1 )

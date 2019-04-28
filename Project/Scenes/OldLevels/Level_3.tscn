@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/BlackHole.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/NEW_Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/FinishPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Old Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Old Prefabs/BlackHole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Old Prefabs/NEW_Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Old Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Old Prefabs/FinishPlatform.tscn" type="PackedScene" id=5]
+
 
 [node name="Level_3" type="Node2D"]
 

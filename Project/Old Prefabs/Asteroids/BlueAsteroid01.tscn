@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/AsteroidRigid.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/BlueAsteroid_Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Scripts/Old Scripts/AsteroidRigid.gd" type="Script" id=1]
+[ext_resource path="res://Art/Tiles/BlueAsteroid_Tiles.tres" type="TileSet" id=2]
+
+
 
 [sub_resource type="ConcavePolygonShape2D" id=1]
 segments = PoolVector2Array( 32, 32, 32, -32, -64, -32, -64, 96, 0, 96, 0, 32, 32, -32, -64, -32, 32, 32, 0, 32, 0, 96, -64, 96 )

@@ -1,13 +1,15 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/Level_EndlessMode.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/BlackHole.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Master_Spawner.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/SpawnerMover.gd" type="Script" id=6]
-[ext_resource path="res://Prefabs/NEW_Camera.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Audio/Level 2 Final.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scripts/Old Scripts/Level_EndlessMode.gd" type="Script" id=1]
+[ext_resource path="res://Old Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Old Prefabs/BlackHole.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Old Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Old Scripts/Master_Spawner.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Old Scripts/SpawnerMover.gd" type="Script" id=6]
+[ext_resource path="res://Old Prefabs/NEW_Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Audio/Level 3 Final.wav" type="AudioStream" id=8]
+
+
 
 [node name="Level_EndlessMode" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,38 +23,56 @@ position = Vector2( 632.42, 0 )
 position = Vector2( 612.256, 907.097 )
 
 [node name="Asteroids" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="L_1" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 351.457, 111.609 )
+position = Vector2( 567.305, 147.962 )
 BH_Intensity_Curve = 500
 
 [node name="L_2" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 454.981, 80.6858 )
+position = Vector2( 361.826, -219.229 )
 
 [node name="L_3" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 892.524, 95.1628 )
+position = Vector2( 1033.39, -159.31 )
 
 [node name="L_4" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 1067.94, 136.322 )
+position = Vector2( 672.598, -122.695 )
 
 [node name="L_5" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 745.701, 38.359 )
+position = Vector2( 870.665, -227.474 )
 
 [node name="L_6" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 661.622, 181.097 )
+position = Vector2( 573.011, -314.216 )
 initial_velocity = Vector2( 0, -100 )
 
 [node name="L_7" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 350.464, 289.473 )
+position = Vector2( 743.534, 355.363 )
+initial_velocity = Vector2( 0, -100 )
+
+[node name="L_8" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 829.873, 191.774 )
+initial_velocity = Vector2( 0, -100 )
+
+[node name="L_9" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 341.376, 180.413 )
+initial_velocity = Vector2( 0, -100 )
+
+[node name="L_10" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 507.237, 380.356 )
+initial_velocity = Vector2( 0, -100 )
+
+[node name="L_11" parent="Asteroids" instance=ExtResource( 4 )]
+position = Vector2( 1032.09, 255.392 )
 initial_velocity = Vector2( 0, -100 )
 
 [node name="Master_Spawner" type="Node2D" parent="."]
-editor/display_folded = true
+position = Vector2( -14.35, 66.9666 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+rxMax = 600
+ryMax = 150
+hardMode = true
 
 [node name="Spawners_Top" type="Node2D" parent="Master_Spawner"]
 position = Vector2( 8.20221, -88.1737 )

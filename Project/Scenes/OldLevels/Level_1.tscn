@@ -1,12 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/BlackHole.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/NEW_Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/FinishPlatformFinal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Old Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Old Prefabs/BlackHole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Old Prefabs/NEW_Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Old Prefabs/Asteroids/BigAsteroidRigid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Old Prefabs/FinishPlatform.tscn" type="PackedScene" id=5]
 
-[node name="Level_4" type="Node2D"]
+
+[node name="Level_1" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
 
@@ -25,26 +26,26 @@ position = Vector2( 294.042, 345.372 )
 BH_Intensity_Curve = 500
 
 [node name="L_2" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 411.056, 271.171 )
+position = Vector2( 387.313, 234.477 )
 
 [node name="L_3" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 661.352, 93.0043 )
+position = Vector2( 568.537, 177.185 )
 
 [node name="L_4" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 922.996, 498.298 )
+position = Vector2( 704.991, 148.625 )
 
 [node name="L_5" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 1072.39, 313.24 )
+position = Vector2( 895.391, 147.038 )
 
 [node name="L_6" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 948.483, 184.982 )
+position = Vector2( 870.778, 435.365 )
+initial_velocity = Vector2( 0, -100 )
 
 [node name="L_7" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 542.136, 190.831 )
-
-[node name="L_8" parent="Asteroids" instance=ExtResource( 4 )]
-position = Vector2( 604.732, -644.499 )
+position = Vector2( 645.743, 400.203 )
+initial_velocity = Vector2( 0, -100 )
 
 [node name="FinishPlatform" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1061, 771.001 )
+position = Vector2( 1093.48, 641.887 )
+nextLevel = "res://Scenes/Level_2.tscn"
 

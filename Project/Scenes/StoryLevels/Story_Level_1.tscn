@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Art/Tiles/BlueStaticAsteroids.tres" type="TileSet" id=1]
+[ext_resource path="res://New Prefabs/Camera_v3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://New Prefabs/BlackHole_v2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Old Prefabs/FinishPlatform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://New Prefabs/Player_v2.tscn" type="PackedScene" id=5]
+
+[node name="Story_Level_1" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_bounce = 1.0
+format = 1
+tile_data = PoolIntArray( 196629, 0, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 196633, 2, 0, 262165, 3, 0, 262166, 4, 0, 262167, 7, 0, 262168, 4, 0, 262169, 5, 0, 327701, 3, 0, 327702, 5, 0, 327704, 3, 0, 327705, 5, 0, 393237, 3, 0, 393238, 4, 0, 393239, 1, 0, 393240, 4, 0, 393241, 5, 0, 458773, 6, 0, 458774, 7, 0, 458775, 7, 0, 458776, 7, 0, 458777, 8, 0, 720912, 0, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 2, 0, 786448, 6, 0, 786449, 7, 0, 786450, 7, 0, 786451, 7, 0, 786452, 7, 0, 786453, 7, 0, 786454, 8, 0, 1048581, 0, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 2, 0, 1114117, 6, 0, 1114118, 7, 0, 1114119, 7, 0, 1114120, 7, 0, 1114121, 7, 0, 1114122, 7, 0, 1114123, 7, 0, 1114124, 7, 0, 1114125, 7, 0, 1114126, 7, 0, 1114127, 8, 0 )
+
+[node name="MainCamera_v3" parent="." instance=ExtResource( 2 )]
+
+[node name="BlackHole_v2" parent="." instance=ExtResource( 3 )]
+pause_mode = 0
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="FinishPlatform" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1038.34, 75.6936 )
+nextLevel = "res://Scenes/StoryLevels/Story_Level_1.tscn"
+
+[node name="Player_v2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 278.114, 469.035 )
+

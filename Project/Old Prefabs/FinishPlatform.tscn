@@ -1,8 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/WinLevelArea.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Old Scripts/WinLevelArea.gd" type="Script" id=1]
 [ext_resource path="res://Art/Finish platform/spr_finish_platform1.png" type="Texture" id=2]
 [ext_resource path="res://Art/Finish platform/spr_finish_platform2.png" type="Texture" id=3]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

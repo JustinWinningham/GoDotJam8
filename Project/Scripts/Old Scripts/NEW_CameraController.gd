@@ -26,12 +26,3 @@ func _process(delta):
 		else:
 			cur_y = lerp(cur_y, 1200, 0.05)
 		$CanvasLayer/UI/DANGER.position.y = cur_y
-		
-#	if BlackHole != null:
-#		var intensity = BlackHole.getGravIntensity(thePlayer.position.y)
-#		var cur_y = $CanvasLayer/UI/DANGER.position.y
-#		if !intensity <= BlackHole.farGravPull and intensity < BlackHole.closeGravPull:
-#			cur_y = lerp(cur_y, 1000, 0.05) # Go into view
-#		else:
-#			cur_y = lerp(cur_y, 1200, 0.05) # Go out of view
-#		$CanvasLayer/UI/DANGER.position.y = cur_y

@@ -23,7 +23,7 @@ config/icon="res://Art/icon.png"
 
 [autoload]
 
-GLOBAL="*res://Scripts/GLOBAL.gd"
+GLOBAL="*res://Scripts/Old Scripts/GLOBAL.gd"
 
 [display]
 

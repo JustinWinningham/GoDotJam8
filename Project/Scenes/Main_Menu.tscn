@@ -1,16 +1,16 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scripts/Main_Menu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Old Scripts/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Backgrounds/background_space2.png" type="Texture" id=2]
-[ext_resource path="res://Prefabs/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Old Prefabs/QuitButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/UI/btn_quit.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Old Scripts/ButtonChangeScene.gd" type="Script" id=5]
 [ext_resource path="res://Art/UI/button_play.png" type="Texture" id=6]
 [ext_resource path="res://Art/UI/btn_endless.png" type="Texture" id=7]
 [ext_resource path="res://Art/UI/btn_endless_hard.png" type="Texture" id=8]
 [ext_resource path="res://Art/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Audio/black-hole-concept - Level One [Journey Beyond].wav" type="AudioStream" id=10]
-[ext_resource path="res://Prefabs/Master_Spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Old Prefabs/Master_Spawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/Backgrounds/background_title.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
@@ -40,9 +40,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -71.9999
-margin_top = -24.0
+margin_top = -25.3604
 margin_right = 71.9999
-margin_bottom = 24.0
+margin_bottom = 22.6396
 shortcut_in_tooltip = false
 flat = true
 script = ExtResource( 5 )
@@ -52,6 +52,28 @@ __meta__ = {
 scenePath = "res://Scenes/Tutorial_Level.tscn"
 
 [node name="Sprite" type="Sprite" parent="PlayButton"]
+position = Vector2( 71.579, 22.1056 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="PlayButton2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -311.294
+margin_top = -29.4415
+margin_right = -167.294
+margin_bottom = 18.5585
+shortcut_in_tooltip = false
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+scenePath = "res://Scenes/StoryLevels/Story_Level_1.tscn"
+
+[node name="Sprite" type="Sprite" parent="PlayButton2"]
 position = Vector2( 71.579, 22.1056 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
@@ -69,7 +91,7 @@ shortcut_in_tooltip = false
 icon = ExtResource( 7 )
 flat = true
 script = ExtResource( 5 )
-scenePath = "res://Scenes/Level_EndlessMode.tscn"
+scenePath = "res://Scenes/EndlessLevels/Level_EndlessModeHard.tscn"
 
 [node name="EndlessModeHard" type="Button" parent="."]
 anchor_left = 0.5
